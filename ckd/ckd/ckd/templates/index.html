@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    body {
+      font-family: Cambria;
+    height: 100%;
+        background-color: #f0f0f0; /* Change to your desired background color */
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .bg{
+      color:black;
+      font-family: tahoma;
+    }
+    .bg1{
+      color:#620985;
+      font-family: tahoma;
+    }
+    .navbg{
+      background-color: #2d6485;
+  }
+  .navbar-light .navbar-nav .nav-link1 {
+    color: rgba(248, 242, 242, 0.986);
+}
+.nav-link1 {
+  display: block;
+  padding: .5rem 1rem;
+}
+.navbar-light .navbar-brand1 {
+  color: rgb(252, 252, 252);
+}
+.navbar-brand1,
+    .nav-link1 {
+        color: white; /* Set default color */
+        text-decoration: none;
+        transition: color 0.3s ease; /* Smooth transition */
+    }
+    .nav-link1:hover {
+        color: red; /* Change color on hover */
+    }
+
+    li a:hover {
+            
+      color: #bd3715;
+      text-shadow: 0 0 5px #1731a5; /* Adding a glowing effect to the text */
+       /* Adding a glowing effect to the element */
+  }
+</style>
+<div class="jumbotron text-center" style="background-color: #3498db; color: #fff; background-image: url('https://idahonews.com/resources/media/580e30b3-edd4-4ce1-b418-48eb0bf8ada2-jumbo3x1_GettyImages650717510.jpg'); background-size: cover;
+background-position: center;
+background-attachment: fixed;">
+  <h1 class="display-3 bg">Chronic Kidney Disease Prediction</h1>
+  <p class="lead bg1">This is a platform for detecting  Chronic kidney disease using machine learning algorithms.</p>
+  <hr class="my-4">
+  <p class="bg">Stay informed. Stay vigilant.</p>
+</div>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: blue;">Easy to Use</h5>
+          <p class="card-text">Detecting  Chronic kidney disease is as simple as entering the text and clicking a button.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: green;">Accurate Results</h5>
+          <p class="card-text">Our machine learning algorithms provide accurate detection results.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: red;">Fast Processing</h5>
+          <p class="card-text">Get results in seconds, enabling you to verify news articles quickly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

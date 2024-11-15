@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Predictor</title>
+    <style>
+        html{
+            background-image: url("https://img.freepik.com/free-photo/top-view-chat-bubbles-with-telephone-receiver-copy-space_23-2148796078.jpg?size=626&ext=jpg&ga=GA1.1.867424154.1712188800&semt=ais");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity here */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function onclick1() {
+            alert("Successfully Subscribed")
+        }
+    
+        // Function to close the popup
+        
+    </script>
+    <div class="container">
+        <h1>Chronic Kidney Disease Predicton</h1>
+        <p>Welcome to our website! We provide a tool to predict chronic kidney disease based on various factors.</p>
+        <p>Our mission is to help individuals assess their risk of chronic kidney disease using advanced machine learning techniques.</p>
+        <p>Feel free to <a href="mailto:info@example.com">contact us</a> for any inquiries or feedback.</p>
+        <p>Follow us on social media for updates:</p>
+        <ul>
+            <li><a href="https://twitter.com">Twitter</a></li>
+            <li><a href="https://facebook.com">Facebook</a></li>
+            <li><a href="https://instagram.com">Instagram</a></li>
+        </ul>
+        <p><strong>Join our newsletter to stay informed:</strong></p>
+        
+        <form action="{{ url_for('subscribe') }}" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" onclick="onclick1()">Subscribe</button>
+        </form>
+        <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chronic Kidney Disease Predicton</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: 'Arimo', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .login {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+      margin: 50px auto;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .suggestions {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+    .suggestions h2 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .suggestions ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .suggestions li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Chronic Kidney Disease Predicton</h1>
+    <br>
+    <br>
+    {{ prediction_text }}
+    <br>
+    <br>
+    <div class="suggestions">
+      <h2>Healthy Kidney Tips:</h2>
+      <ul>
+        <li>Stay Hydrated: Drink plenty of water throughout the day.</li>
+        <li>Eat a Healthy Diet: Include fruits, vegetables, and whole grains in your meals.</li>
+        <li>Control Blood Pressure: Monitor your blood pressure regularly and take necessary steps to keep it under control.</li>
+        <li>Manage Blood Sugar: If you have diabetes, maintain stable blood sugar levels through diet and medication.</li>
+        <li>Maintain a Healthy Weight: Aim for a healthy BMI through diet and exercise.</li>
+        <li>Exercise Regularly: Engage in physical activity for at least 30 minutes most days of the week.</li>
+        <li>Limit Alcohol Consumption: Drink alcohol in moderation, if at all.</li>
+        <li>Quit Smoking: Smoking can damage blood vessels and decrease kidney function.</li>
+        <li>Monitor Kidney Health: If you have risk factors, get regular check-ups and tests.</li>
+        <li>Follow Medical Advice: Consult your healthcare provider for personalized guidance.</li>
+      </ul>
+    </div>
+    <br>
+    {% if prediction_text == "Positive" %}
+    <div class="suggestions">
+      <h2>For Positive CKD Diagnosis:</h2>
+      <ul>
+        <li>Consult a Nephrologist: Schedule an appointment with a kidney specialist for further evaluation and management.</li>
+        <li>Follow a Renal Diet: Limit sodium, potassium, and phosphorus intake as recommended by your healthcare provider.</li>
+        <li>Manage Fluid Intake: Monitor fluid intake to avoid fluid overload and maintain electrolyte balance.</li>
+        <li>Medication Adherence: Take prescribed medications regularly and follow dosage instructions carefully.</li>
+        <li>Regular Monitoring: Schedule regular check-ups with your healthcare provider to monitor kidney function and adjust treatment as needed.</li>
+      </ul>
+    </div>
+    {% elif prediction_text == "Negative" %}
+    <div class="suggestions">
+      <h2>For Negative CKD Diagnosis:</h2>
+      <ul>
+        <li>Follow a Balanced Diet: Eat a diet low in salt, saturated fats, and cholesterol.</li>
+        <li>Limit Protein Intake: Reduce consumption of protein-rich foods, as excessive protein can strain the kidneys.</li>
+        <li>Avoid Over-the-Counter Painkillers: Non-prescription pain medications like ibuprofen and naproxen can harm the kidneys if used excessively.</li>
+        <li>Control Blood Pressure and Blood Sugar: Manage these factors through diet, exercise, and medication as needed.</li>
+        <li>Stay Active: Engage in regular physical activity to maintain overall health and prevent further complications.</li>
+      </ul>
+    </div>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </div>
+</body>
+</html>

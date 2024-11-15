@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chronic Kidney Disease Predicton</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  <style>
+    html{
+      background-image: url("https://img.freepik.com/free-photo/health-still-life-with-copy-space_23-2148854031.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1712102400&semt=ais");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+     body {
+      font-family: 'Arimo', sans-serif;
+        display: block;
+        margin: 8px;
+    }
+    
+    .login {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 600px;
+      margin: 50px auto;
+      opacity: 0.8;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .prediction {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f8d7da;
+      color: #721c24;
+      border-radius: 5px;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Chronic Kidney Disease Predicton</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="age" placeholder="Age" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="bp" placeholder="Blood Pressure" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="al" placeholder="Albumin" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="su" placeholder="Sugar" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="rbc" placeholder="Red Blood Cells" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="pc" placeholder="Pus Cells" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="pcc" placeholder="Pus Cell Clumps" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="ba" placeholder="Bacteria" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="bgr" placeholder="Blood Glucose Random" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="bu" placeholder="Blood Urea" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="sc" placeholder="Serum Creatinine" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="pot" placeholder="Potassium" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="wc" placeholder="White Blood Cell Count" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="htn" placeholder="Hypertension" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="dm" placeholder="Diabetes Mellitus" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="cad" placeholder="Coronary Artery Disease" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="pe" placeholder="Pedal Edema" required="required" />
+      <input style="border: 1px solid #5fa81b; background-color: #f3f3f3" class="form-control" type="text" name="ane" placeholder="Anemia" required="required" />
+      <button type="submit">Predict</button>
+    </form>
+    {% if prediction_text %}
+    <div class="prediction">
+      <strong>Prediction:</strong> {{ prediction_text }}
+    </div>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+  </div>
+</body>
+</html>
